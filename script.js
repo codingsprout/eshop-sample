@@ -20,4 +20,16 @@ $(document).ready(function () {
       },
     },
   });
+
+  const $grid = $('.grid').isotope({
+    itemSelector: '.grid-item',
+    layoutMode: 'fitRows',
+  });
+
+  $('.button-group').on('click', 'button', function () {
+    const filterValue = $(this).attr('data-filter');
+    $grid.isotope({
+      filter: filterValue,
+    });
+  });
 });
