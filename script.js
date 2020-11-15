@@ -63,4 +63,24 @@ $(document).ready(function () {
       },
     },
   });
+
+  const qtUp = $('.qty .qty-up');
+  const qtDown = $('.qty .qty-down');
+  const input = $('.qty .qty_input');
+
+  qtUp.click(function (e) {
+    if (input.val() >= 1 && input.val() <= 9) {
+      input.val(function (i, oldval) {
+        return ++oldval;
+      });
+    }
+  });
+
+  qtDown.click(function (e) {
+    if (input.val() > 1 && $input.val() <= 10) {
+      input.val(function (i, oldval) {
+        return --oldval;
+      });
+    }
+  });
 });
