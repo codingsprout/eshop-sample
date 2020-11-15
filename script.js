@@ -64,11 +64,12 @@ $(document).ready(function () {
     },
   });
 
-  const qtUp = $('.qty .qty-up');
-  const qtDown = $('.qty .qty-down');
-  const input = $('.qty .qty_input');
+  let qtUp = $('.qty .qty-up');
+  let qtDown = $('.qty .qty-down');
 
   qtUp.click(function (e) {
+    let input = $(`.qty_input[data-id='${$(this).data('id')}']`);
+
     if (input.val() >= 1 && input.val() <= 9) {
       input.val(function (i, oldval) {
         return ++oldval;
@@ -77,7 +78,9 @@ $(document).ready(function () {
   });
 
   qtDown.click(function (e) {
-    if (input.val() > 1 && $input.val() <= 10) {
+    const input = $(`.qty_input[data-id='${$(this).data('id')}']`);
+
+    if (input.val() > 1 && input.val() <= 10) {
       input.val(function (i, oldval) {
         return --oldval;
       });
